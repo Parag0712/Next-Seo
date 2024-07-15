@@ -3,24 +3,29 @@ import { delay } from "@/lib/utils";
 import { BlogPost, BlogPostsResponse } from "@/models/BlogPost";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cache } from "react";
 
 interface BlogPostPageProps {
   params: { postId: string };
 }
 
+
+// For Prender 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/posts");
   const { posts }: BlogPostsResponse = await response.json();
-
   return posts.map(({ id }) => id);
 }
 
-// Manually deduplicate requests if not using fetch
-// const getPost = cache(async (postId: string) => {
-//   const post = await prisma.post.findUnique(postId);
-//   return post;
+
+// Here fetch is auto cathc by next js 
+// if you  are using axios or prisma then 
+// you make one seprate function and use this funciton so next js auto fetch
+
+// const getPost = cache(async ()=>{
+//   // Axios login
+//   return post
 // })
+
 
 export async function generateMetadata({
   params: { postId },
@@ -47,6 +52,7 @@ export default async function BlogPostPage({
   const response = await fetch(`https://dummyjson.com/posts/${postId}`);
   const { title, body }: BlogPost = await response.json();
 
+  // Not Found 
   if (response.status === 404) {
     notFound();
   }
