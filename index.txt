@@ -1,0 +1,49 @@
+
+in the house dataset predication
+
+2) find missing a value in colum 
+3) fill average in missing colum 
+
+now check missing value in colum and row
+using min feel value 
+
+thats preprocesing
+
+4) check data type of all colum
+    problem  - one colum have int but value in float fix this
+    make actual type
+
+5) dataframe.head() csv file
+first store in dataframe 
+and .head() give top 5 
+specify colum name
+
+   
+
+now feature eng 
+
+model selection
+heatmap
+scalator plot
+
+number of bed rooms graph
+
+area population graph
+
+pair plot
+
+deturubiation plot
+
+input feature and output feature
+
+
+sklearn model 
+x training,x ,y  training,y
+for split training data and old data
+
+random state '
+
+we set the 
+
+import spliting function model selection linear model 
+sklearn linear 
